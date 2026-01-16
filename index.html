@@ -33,12 +33,15 @@
             justify-content: space-between;
             align-items: center;
             gap: 12px;
+            position: relative;
         }
         .text-content {
             flex: 1;
             color: #37352f;
             font-size: 14px;
             line-height: 1.5;
+            user-select: all;
+            cursor: text;
         }
         .copy-btn {
             background: #2383e2;
@@ -63,10 +66,27 @@
             font-size: 24px;
             margin-bottom: 24px;
         }
+        .hidden-input {
+            position: absolute;
+            left: -9999px;
+        }
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #856404;
+        }
     </style>
 </head>
 <body>
     <h1>Quick Copy Tool</h1>
+    
+    <div class="instructions">
+        💡 <strong>How to copy:</strong> Click the "Copy" button, or triple-click on any text to select it, then press Ctrl+C (or Cmd+C on Mac)
+    </div>
     
     <div class="section">
         <div class="section-title">📍 Clinic Locations</div>
@@ -177,18 +197,54 @@ Once confirmed, we can then proceed with scheduling your appointment.</div>
         </div>
     </div>
 
+    <textarea id="hiddenInput" class="hidden-input"></textarea>
+
     <script>
         function copyText(button, text) {
-            navigator.clipboard.writeText(text).then(() => {
-                const originalText = button.textContent;
-                button.textContent = 'Copied!';
-                button.classList.add('copied');
-                
+            // Method 1: Try modern clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopied(button);
+                }).catch(() => {
+                    // If that fails, try fallback method
+                    fallbackCopy(text, button);
+                });
+            } else {
+                // Use fallback method
+                fallbackCopy(text, button);
+            }
+        }
+
+        function fallbackCopy(text, button) {
+            const textarea = document.getElementById('hiddenInput');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '0';
+            textarea.style.top = '0';
+            textarea.style.opacity = '0';
+            textarea.focus();
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopied(button);
+            } catch (err) {
+                button.textContent = 'Failed';
                 setTimeout(() => {
-                    button.textContent = originalText;
-                    button.classList.remove('copied');
+                    button.textContent = 'Copy';
                 }, 2000);
-            });
+            }
+        }
+
+        function showCopied(button) {
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
         }
     </script>
 </body>
