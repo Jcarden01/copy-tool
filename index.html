@@ -8,16 +8,27 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             padding: 20px;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: #ffffff;
+        }
+        .section {
+            margin-bottom: 32px;
+        }
+        .section-title {
+            color: #37352f;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
         }
         .text-item {
             background: #f7f6f3;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
             padding: 12px 16px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,61 +58,123 @@
         .copy-btn.copied {
             background: #0f7b6c;
         }
-        .add-new {
-            margin-top: 20px;
-            padding: 16px;
-            background: #f7f6f3;
-            border-radius: 6px;
-        }
-        .add-new input {
-            width: calc(100% - 100px);
-            padding: 8px 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            font-size: 14px;
-            margin-right: 8px;
-        }
-        .add-btn {
-            background: #37352f;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        .add-btn:hover {
-            background: #2c2a26;
-        }
-        h2 {
+        h1 {
             color: #37352f;
-            font-size: 20px;
-            margin-bottom: 16px;
+            font-size: 24px;
+            margin-bottom: 24px;
         }
     </style>
 </head>
 <body>
-    <h2>Click to Copy Text</h2>
+    <h1>Quick Copy Tool</h1>
     
-    <div id="textList">
+    <div class="section">
+        <div class="section-title">📍 Clinic Locations</div>
         <div class="text-item">
-            <div class="text-content">Example text you want to copy</div>
-            <button class="copy-btn" onclick="copyText(this, 'Example text you want to copy')">Copy</button>
+            <div class="text-content">3000 N. Halsted Street, Suite #400, Chicago, IL 60657</div>
+            <button class="copy-btn" onclick="copyText(this, '3000 N. Halsted Street, Suite #400, Chicago, IL 60657')">Copy</button>
         </div>
         <div class="text-item">
-            <div class="text-content">Another piece of text to copy</div>
-            <button class="copy-btn" onclick="copyText(this, 'Another piece of text to copy')">Copy</button>
+            <div class="text-content">8930 Gross Point Road, Suite #700, Skokie, IL 60077</div>
+            <button class="copy-btn" onclick="copyText(this, '8930 Gross Point Road, Suite #700, Skokie, IL 60077')">Copy</button>
         </div>
         <div class="text-item">
-            <div class="text-content">Add as many as you need!</div>
-            <button class="copy-btn" onclick="copyText(this, 'Add as many as you need!')">Copy</button>
+            <div class="text-content">2522 W. Peterson Avenue, Chicago, IL 60659</div>
+            <button class="copy-btn" onclick="copyText(this, '2522 W. Peterson Avenue, Chicago, IL 60659')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">2845 N. Sheridan Rd., Suite 807, Chicago, IL, 60657</div>
+            <button class="copy-btn" onclick="copyText(this, '2845 N. Sheridan Rd., Suite 807, Chicago, IL, 60657')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">2222 W. Division Street, Suite #330, Chicago, IL 60622</div>
+            <button class="copy-btn" onclick="copyText(this, '2222 W. Division Street, Suite #330, Chicago, IL 60622')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">2740 W. Foster Avenue, Suite #405, Chicago, IL 60625</div>
+            <button class="copy-btn" onclick="copyText(this, '2740 W. Foster Avenue, Suite #405, Chicago, IL 60625')">Copy</button>
         </div>
     </div>
 
-    <div class="add-new">
-        <input type="text" id="newText" placeholder="Type new text to add...">
-        <button class="add-btn" onclick="addNewItem()">Add</button>
+    <div class="section">
+        <div class="section-title">💬 Initial/Follow-Up Outreach</div>
+        <div class="text-item">
+            <div class="text-content">Good morning, just wanted to follow up on scheduling your appointment!</div>
+            <button class="copy-btn" onclick="copyText(this, 'Good morning, just wanted to follow up on scheduling your appointment!')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Good afternoon, just wanted to follow up on scheduling your appointment!</div>
+            <button class="copy-btn" onclick="copyText(this, 'Good afternoon, just wanted to follow up on scheduling your appointment!')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Attempted to schedule via text, but patient was unresponsive.</div>
+            <button class="copy-btn" onclick="copyText(this, 'Attempted to schedule via text, but patient was unresponsive.')">Copy</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🆔 Insurance Information Requests</div>
+        <div class="text-item">
+            <div class="text-content">Thanks for confirming! Could you also provide your insurance subscriber ID?</div>
+            <button class="copy-btn" onclick="copyText(this, 'Thanks for confirming! Could you also provide your insurance subscriber ID?')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Thanks for confirming! Could you also provide your insurance subscriber ID?
+Once confirmed, we can then proceed with scheduling your appointment.</div>
+            <button class="copy-btn" onclick="copyText(this, 'Thanks for confirming! Could you also provide your insurance subscriber ID?\nOnce confirmed, we can then proceed with scheduling your appointment.')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Unfortunately, we'll need your subscriber ID to schedule you for an appointment. Please reach out again when you have that information!</div>
+            <button class="copy-btn" onclick="copyText(this, 'Unfortunately, we'll need your subscriber ID to schedule you for an appointment. Please reach out again when you have that information!')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Thanks for confirming! Could you also confirm the specific name of your insurance plan?</div>
+            <button class="copy-btn" onclick="copyText(this, 'Thanks for confirming! Could you also confirm the specific name of your insurance plan?')">Copy</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">📅 Scheduling Responses</div>
+        <div class="text-item">
+            <div class="text-content">Great thank you for confirming! One moment while I find the next available appointment for you...</div>
+            <button class="copy-btn" onclick="copyText(this, 'Great thank you for confirming! One moment while I find the next available appointment for you...')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">We have an available appointment on Fri, Jan 16th at 09:40 AM with Kathleen Masella at our Skokie location (8930 Gross Point Road, Suite #700, Skokie, IL 60077); would you like to schedule this time?</div>
+            <button class="copy-btn" onclick="copyText(this, 'We have an available appointment on Fri, Jan 16th at 09:40 AM with Kathleen Masella at our Skokie location (8930 Gross Point Road, Suite #700, Skokie, IL 60077); would you like to schedule this time?')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Great, we have you scheduled for Wed, Jan 28 at 10:10 AM with T K Venkatesan. Have a nice day!</div>
+            <button class="copy-btn" onclick="copyText(this, 'Great, we have you scheduled for Wed, Jan 28 at 10:10 AM with T K Venkatesan. Have a nice day!')">Copy</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🚪 Closing Conversations</div>
+        <div class="text-item">
+            <div class="text-content">Due to a lack of response, we will close this text conversation. Our office staff will attempt to contact you to schedule via phone call. Have a great day!</div>
+            <button class="copy-btn" onclick="copyText(this, 'Due to a lack of response, we will close this text conversation. Our office staff will attempt to contact you to schedule via phone call. Have a great day!')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">We see you have been scheduled for an appointment and are closing this conversation. Have a great day!</div>
+            <button class="copy-btn" onclick="copyText(this, 'We see you have been scheduled for an appointment and are closing this conversation. Have a great day!')">Copy</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">☎️ Redirects to Office/Billing</div>
+        <div class="text-item">
+            <div class="text-content">Please call us at (773) 296-5500, and we'll connect you with someone who can help with more specific clinical details.</div>
+            <button class="copy-btn" onclick="copyText(this, 'Please call us at (773) 296-5500, and we'll connect you with someone who can help with more specific clinical details.')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">I'm unable to assist you with any financial questions, but a member of our billing staff can help you. You can call our office at 773-296-5500,</div>
+            <button class="copy-btn" onclick="copyText(this, 'I\'m unable to assist you with any financial questions, but a member of our billing staff can help you. You can call our office at 773-296-5500,')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Your insurance (Blue Cross Community) is in-network with some providers at our clinic. However, for questions about visit cost, please call our main office at (773) 296-5500. Our billing team will be able to assist you with any financial questions.</div>
+            <button class="copy-btn" onclick="copyText(this, 'Your insurance (Blue Cross Community) is in-network with some providers at our clinic. However, for questions about visit cost, please call our main office at (773) 296-5500. Our billing team will be able to assist you with any financial questions.')">Copy</button>
+        </div>
     </div>
 
     <script>
@@ -117,29 +190,6 @@
                 }, 2000);
             });
         }
-
-        function addNewItem() {
-            const input = document.getElementById('newText');
-            const text = input.value.trim();
-            
-            if (text) {
-                const textList = document.getElementById('textList');
-                const newItem = document.createElement('div');
-                newItem.className = 'text-item';
-                newItem.innerHTML = `
-                    <div class="text-content">${text}</div>
-                    <button class="copy-btn" onclick="copyText(this, '${text.replace(/'/g, "\\'")}')">Copy</button>
-                `;
-                textList.appendChild(newItem);
-                input.value = '';
-            }
-        }
-
-        document.getElementById('newText').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                addNewItem();
-            }
-        });
     </script>
 </body>
 </html>
