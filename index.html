@@ -117,7 +117,7 @@
     </div>
 
     <div class="section">
-        <div class="section-title">💬 Initial/Follow-Up Outreach</div>
+        <div class="section-title">💬 Follow Up/Outreach</div>
         <div class="text-item">
             <div class="text-content">Good morning, just wanted to follow up on scheduling your appointment!</div>
             <button class="copy-btn" onclick="copyText(this, 'Good morning, just wanted to follow up on scheduling your appointment!')">Copy</button>
@@ -125,6 +125,18 @@
         <div class="text-item">
             <div class="text-content">Good afternoon, just wanted to follow up on scheduling your appointment!</div>
             <button class="copy-btn" onclick="copyText(this, 'Good afternoon, just wanted to follow up on scheduling your appointment!')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Due to a lack of response, we will close this text conversation. Our office staff will attempt to contact you to schedule via phone call. Have a great day!</div>
+            <button class="copy-btn" onclick="copyText(this, 'Due to a lack of response, we will close this text conversation. Our office staff will attempt to contact you to schedule via phone call. Have a great day!')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">We see you have been scheduled for an appointment and are closing this conversation. Have a great day!</div>
+            <button class="copy-btn" onclick="copyText(this, 'We see you have been scheduled for an appointment and are closing this conversation. Have a great day!')">Copy</button>
+        </div>
+        <div class="text-item">
+            <div class="text-content">Attempted to schedule via text, but patient was unresponsive.</div>
+            <button class="copy-btn" onclick="copyText(this, 'Attempted to schedule via text, but patient was unresponsive.')">Copy</button>
         </div>
     </div>
 
@@ -141,7 +153,7 @@ Once confirmed, we can then proceed with scheduling your appointment.</div>
         </div>
         <div class="text-item">
             <div class="text-content">Unfortunately, we'll need your subscriber ID to schedule you for an appointment. Please reach out again when you have that information!</div>
-            <button class="copy-btn" onclick="copyText(this, 'Unfortunately, we'll need your subscriber ID to schedule you for an appointment. Please reach out again when you have that information!')">Copy</button>
+            <button class="copy-btn" onclick="copyText(this, 'Unfortunately, we\'ll need your subscriber ID to schedule you for an appointment. Please reach out again when you have that information!')">Copy</button>
         </div>
         <div class="text-item">
             <div class="text-content">Thanks for confirming! Could you also confirm the specific name of your insurance plan?</div>
@@ -166,26 +178,10 @@ Once confirmed, we can then proceed with scheduling your appointment.</div>
     </div>
 
     <div class="section">
-        <div class="section-title">🚪 Closing Conversations</div>
-        <div class="text-item">
-            <div class="text-content">Due to a lack of response, we will close this text conversation. Our office staff will attempt to contact you to schedule via phone call. Have a great day!</div>
-            <button class="copy-btn" onclick="copyText(this, 'Due to a lack of response, we will close this text conversation. Our office staff will attempt to contact you to schedule via phone call. Have a great day!')">Copy</button>
-        </div>
-        <div class="text-item">
-            <div class="text-content">We see you have been scheduled for an appointment and are closing this conversation. Have a great day!</div>
-            <button class="copy-btn" onclick="copyText(this, 'We see you have been scheduled for an appointment and are closing this conversation. Have a great day!')">Copy</button>
-        </div>
-        <div class="text-item">
-            <div class="text-content">Attempted to schedule via text, but patient was unresponsive.</div>
-            <button class="copy-btn" onclick="copyText(this, 'Attempted to schedule via text, but patient was unresponsive.')">Copy</button>
-        </div>
-    </div>
-
-    <div class="section">
         <div class="section-title">☎️ Redirects to Office/Billing</div>
         <div class="text-item">
             <div class="text-content">Please call us at (773) 296-5500, and we'll connect you with someone who can help with more specific clinical details.</div>
-            <button class="copy-btn" onclick="copyText(this, 'Please call us at (773) 296-5500, and we'll connect you with someone who can help with more specific clinical details.')">Copy</button>
+            <button class="copy-btn" onclick="copyText(this, 'Please call us at (773) 296-5500, and we\'ll connect you with someone who can help with more specific clinical details.')">Copy</button>
         </div>
         <div class="text-item">
             <div class="text-content">I'm unable to assist you with any financial questions, but a member of our billing staff can help you. You can call our office at 773-296-5500,</div>
@@ -201,16 +197,13 @@ Once confirmed, we can then proceed with scheduling your appointment.</div>
 
     <script>
         function copyText(button, text) {
-            // Method 1: Try modern clipboard API
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(() => {
                     showCopied(button);
                 }).catch(() => {
-                    // If that fails, try fallback method
                     fallbackCopy(text, button);
                 });
             } else {
-                // Use fallback method
                 fallbackCopy(text, button);
             }
         }
@@ -230,9 +223,7 @@ Once confirmed, we can then proceed with scheduling your appointment.</div>
                 showCopied(button);
             } catch (err) {
                 button.textContent = 'Failed';
-                setTimeout(() => {
-                    button.textContent = 'Copy';
-                }, 2000);
+                setTimeout(() => { button.textContent = 'Copy'; }, 2000);
             }
         }
 
@@ -240,7 +231,6 @@ Once confirmed, we can then proceed with scheduling your appointment.</div>
             const originalText = button.textContent;
             button.textContent = 'Copied!';
             button.classList.add('copied');
-            
             setTimeout(() => {
                 button.textContent = originalText;
                 button.classList.remove('copied');
