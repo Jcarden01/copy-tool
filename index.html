@@ -35,6 +35,36 @@
             gap: 12px;
             position: relative;
         }
+        .location-group {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .location-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .copy-both-btn {
+            background: #37352f;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: background 0.2s;
+            margin-top: 8px;
+            width: 100%;
+        }
+        .copy-both-btn:hover {
+            background: #2c2a26;
+        }
+        .copy-both-btn.copied {
+            background: #0f7b6c;
+        }
         .text-content {
             flex: 1;
             color: #37352f;
