@@ -34,7 +34,6 @@
             gap: 12px;
             position: relative;
         }
-        /* New styling to handle the grouped locations */
         .location-group {
             display: flex;
             align-items: center;
@@ -52,7 +51,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 8px; /* Space between the name box and address box */
+            gap: 8px;
         }
         .text-content {
             flex: 1;
@@ -80,7 +79,6 @@
         .copy-btn.copied {
             background: #0f7b6c;
         }
-        /* Styled for the new side button */
         .copy-both-btn {
             background: #37352f;
             color: white;
@@ -118,7 +116,6 @@
             font-size: 13px;
             color: #856404;
         }
-        /* Adds bottom margin to standard text-items not in a flex group */
         .section > .text-item {
             margin-bottom: 10px;
         }
@@ -137,15 +134,15 @@
         <div class="location-group">
             <div class="location-details">
                 <div class="text-item" style="background-color: #1e6b56; border-color: #1e6b56;">
-                    <div class="text-content" style="color: white;">Halsted Location</div>
-                    <button class="copy-btn" onclick="copyText(this, 'Halsted Location')">Copy</button>
+                    <div class="text-content" style="color: white;">Lincoln Park</div>
+                    <button class="copy-btn" onclick="copyText(this, 'Lincoln Park')">Copy</button>
                 </div>
                 <div class="text-item" style="background-color: #1e6b56; border-color: #1e6b56;">
                     <div class="text-content" style="color: white;">3000 N. Halsted Street, Suite #400, Chicago, IL 60657</div>
                     <button class="copy-btn" onclick="copyText(this, '3000 N. Halsted Street, Suite #400, Chicago, IL 60657')">Copy</button>
                 </div>
             </div>
-            <button class="copy-both-btn" onclick="copyText(this, 'Halsted Location (3000 N. Halsted Street, Suite #400, Chicago, IL 60657)')">Copy Both</button>
+            <button class="copy-both-btn" onclick="copyText(this, 'Lincoln Park (3000 N. Halsted Street, Suite #400, Chicago, IL 60657)')">Copy Both</button>
         </div>
 
         <div class="location-group">
@@ -165,29 +162,29 @@
         <div class="location-group">
             <div class="location-details">
                 <div class="text-item" style="background-color: #b0c4de; border-color: #b0c4de;">
-                    <div class="text-content" style="color: #333;">St. Joseph Location</div>
-                    <button class="copy-btn" onclick="copyText(this, 'St. Joseph Location')">Copy</button>
+                    <div class="text-content" style="color: #333;">Lakeview</div>
+                    <button class="copy-btn" onclick="copyText(this, 'Lakeview')">Copy</button>
                 </div>
                 <div class="text-item" style="background-color: #b0c4de; border-color: #b0c4de;">
                     <div class="text-content" style="color: #333;">2845 N. Sheridan Rd., Suite 807, Chicago, IL, 60657</div>
                     <button class="copy-btn" onclick="copyText(this, '2845 N. Sheridan Rd., Suite 807, Chicago, IL, 60657')">Copy</button>
                 </div>
             </div>
-            <button class="copy-both-btn" onclick="copyText(this, 'St. Joseph Location (2845 N. Sheridan Rd., Suite 807, Chicago, IL, 60657)')">Copy Both</button>
+            <button class="copy-both-btn" onclick="copyText(this, 'Lakeview (2845 N. Sheridan Rd., Suite 807, Chicago, IL, 60657)')">Copy Both</button>
         </div>
 
         <div class="location-group">
             <div class="location-details">
                 <div class="text-item" style="background-color: #663399; border-color: #663399;">
-                    <div class="text-content" style="color: white;">St. Marys Location</div>
-                    <button class="copy-btn" onclick="copyText(this, 'St. Marys Location')">Copy</button>
+                    <div class="text-content" style="color: white;">Bucktown</div>
+                    <button class="copy-btn" onclick="copyText(this, 'Bucktown')">Copy</button>
                 </div>
                 <div class="text-item" style="background-color: #663399; border-color: #663399;">
                     <div class="text-content" style="color: white;">2222 W. Division Street, Suite #330, Chicago, IL 60622</div>
                     <button class="copy-btn" onclick="copyText(this, '2222 W. Division Street, Suite #330, Chicago, IL 60622')">Copy</button>
                 </div>
             </div>
-            <button class="copy-both-btn" onclick="copyText(this, 'St. Marys Location (2222 W. Division Street, Suite #330, Chicago, IL 60622)')">Copy Both</button>
+            <button class="copy-both-btn" onclick="copyText(this, 'Bucktown (2222 W. Division Street, Suite #330, Chicago, IL 60622)')">Copy Both</button>
         </div>
 
         <div class="location-group">
